@@ -66,9 +66,10 @@ class ProjectsController extends Controller
      */
     public function show($id)
     {
-        app()->abort(404, 'Not implemented');
-
-        return view('projects.show');
+        $project = $this->projects->find($id);
+        $files = $project->files()->simplePaginate(10);
+        
+        return view('projects.show', compact('project', 'files'));
     }
 
     /**
