@@ -45,11 +45,7 @@ class FileController extends Controller
         $file->filePath = $filePath;
         $file->mime = $upload->getMimeType();
         $file->save();
-        
-        return back();
-        
-        
-        
+        return back();  
     }
 
     /**
@@ -63,10 +59,5 @@ class FileController extends Controller
         $file = File::findOrFail($id);
         $filepath = storage_path('app') . '/' . $file->filepath;
         return response()->download($filepath, $file->name);
-
-    }
-
-    
-
-    
+    } 
 }
