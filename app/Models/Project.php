@@ -8,4 +8,9 @@ class Project extends BaseModel
         'name',
         'description',
     ];
+
+    public function files()
+    {
+        return $this->hasMany('App\Models\File', 'project_id');
+    }
 }
